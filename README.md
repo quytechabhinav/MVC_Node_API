@@ -65,7 +65,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
     $ git clone https://github.com/quytechabhinav/MVC_Node_API.git
     $ cd MVC_Node_API
-    $ yarn install
+    $ npm install
 
 ## Configure app
 
