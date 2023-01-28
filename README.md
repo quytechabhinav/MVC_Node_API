@@ -1,6 +1,8 @@
 # MVC_Node_API
-If you start new project take clone of this MVC Basic project and start you development fast.
+
+If you start new project our clone help you to setup basic structure of project in few seconds. Take clone of MVC Basic project and start you development fast.
 A Complete MVC structure of node.js project in which we include following points:
+
 * MVC Structure
 * .env file
 * bcryptjs for password
