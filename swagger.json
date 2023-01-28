@@ -1,0 +1,735 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "API Documentation",
+      "description": "",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API Documentation of Users"
+      }
+      
+    ],
+    "paths": {
+      "/v1/users": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Testing url",
+          "description": "Check API and it's details",
+          "operationId": "checkUser",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": { }
+              }
+            }
+          }
+        }
+      },
+      "/v1/users/sign_up": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Create new users",
+          "description": "Create new user for login",
+          "operationId": "createUser",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signup"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/signup"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/users/sign_in": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Login as users",
+          "description": "Login as user",
+          "operationId": "loginUser",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signup"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/signup"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/users/get_users": {
+        "get": {
+            "tags": [
+              "Users"
+            ],
+            "summary": "Get user details",
+            "description": "Get user details after login",
+            "operationId": "definitions",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {}
+                }
+              }
+            },
+            "security": [
+              {
+                "api_key": []
+              }
+            ]
+          }
+      },
+     
+     
+     
+    
+      "/cv1/compliances/definitions": {
+        "get": {
+          "tags": [
+            "Credentials"
+          ],
+          "summary": "Caregiver compliances",
+          "description": "Caregiver compliances title",
+          "operationId": "definitions",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {}
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/cv1/compliances": {
+        "post": {
+          "tags": [
+            "Credentials"
+          ],
+          "summary": "Save compliance data",
+          "description": "Save compliance data first time",
+          "operationId": "save_compliances",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/compliance"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/compliance"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        },
+        "get": {
+          "tags": [
+            "Credentials"
+          ],
+          "summary": "Caregiver compliances",
+          "description": "Caregiver compliances list according to title",
+          "operationId": "get_compliances",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {}
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      },
+      "/cv1/compliances/{id}": {
+        "put": {
+          "tags": [
+            "Credentials"
+          ],
+          "summary": "Save compliance data",
+          "description": "Update compliance data",
+          "operationId": "update_compliances",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Clock out API for caregiver who is already clock_in",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/compliance"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/compliance"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "api_key": []
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "signup": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "email",
+              "example": "john11@email.com"
+            },
+            "firstname": {
+                "type": "string",
+                "example": "john"
+              },
+              "phone": {
+                "type": "string",
+                "example": "+919990123456"
+              },
+            "password": {
+              "type": "string",
+              "example": "Chetu#098"
+            }
+          }
+        },
+        "compliance": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "example": "35"
+            },
+            "created_at": {
+              "type": "string",
+              "example": ""
+            },
+            "updated_at": {
+              "type": "string",
+              "example": ""
+            },
+            "caregiver_id": {
+              "type": "number",
+              "example": "14"
+            },
+            "compliance_id": {
+              "type": "number",
+              "example": "1"
+            },
+            "group_id": {
+              "type": "string",
+              "example": "null"
+            },
+            "issue_date": {
+              "type": "string",
+              "example": ""
+            },
+            "expiration_date": {
+              "type": "string",
+              "example": ""
+            },
+            "meta": {
+              "type": "string",
+              "example": ""
+            },
+            "verified": {
+              "type": "number",
+              "example": "0"
+            },
+            "current": {
+              "type": "number",
+              "example": "1"
+            },
+            "declined": {
+              "type": "number",
+              "example": "0"
+            },
+            "archived": {
+              "type": "number",
+              "example": "0"
+            },
+            "verify_date": {
+              "type": "string",
+              "example": "0"
+            },
+            "reject": {
+              "type": "number",
+              "example": "0"
+            },
+            "reject_note": {
+              "type": "string",
+              "example": "MBBS Document"
+            },
+            "sms_status": {
+              "type": "number",
+              "example": "0"
+            },
+            "uploads": {
+              "type": "array",
+              "items": {
+                "$ref": ""
+              }
+            },
+            "compliance_type": {
+              "type": "string",
+              "example": "educational"
+            },
+            "parent": {
+              "type": "number",
+              "example": "0"
+            },
+            "title": {
+              "type": "string",
+              "example": "Basic Life Support"
+            },
+            "acronym": {
+              "type": "string",
+              "example": "BLS"
+            },
+            "use_expiration_date": {
+              "type": "number",
+              "example": "1"
+            },
+            "all_positions": {
+              "type": "number",
+              "example": "0"
+            },
+            "can_caregiver_decline": {
+              "type": "number",
+              "example": "0"
+            },
+            "metadata": {
+              "type": "array",
+              "items": {
+                "$ref": ""
+              },
+              "example": ""
+            },
+            "state": {
+              "type": "string",
+              "example": "All"
+            },
+            "use_company_view": {
+              "type": "number",
+              "example": "All"
+            },
+            "status": {
+              "type": "number",
+              "example": "All"
+            },
+            "positionables": {
+              "type": "object",
+              "example": ""
+            },
+            "diffObject": {
+              "type": "object",
+              "example": ""
+            }
+          }
+        },
+        "Admin": {
+          "type": "object",
+          "properties": {
+            "avatar": {
+              "type": "string",
+              "example": "Image URL"
+            },
+            "firstname": {
+              "type": "string",
+              "example": "Abhinav"
+            },
+            "lastname": {
+              "type": "string",
+              "example": "Kashyap"
+            },
+            "phone": {
+              "type": "string",
+              "example": "(111) 111-1111"
+            },
+            "office_phone": {
+              "type": "string",
+              "example": "(111) 111-1111"
+            },
+            "email": {
+              "type": "string",
+              "example": "john@email.com"
+            },
+            "address": {
+              "type": "string",
+              "example": "1709-A South Delhi"
+            },
+            "city": {
+              "type": "string",
+              "example": "New Delhi"
+            },
+            "state": {
+              "type": "string",
+              "example": "Delhi"
+            },
+            "zip": {
+              "type": "number",
+              "example": "20130"
+            },
+            "password": {
+              "type": "string",
+              "example": "Chetu#098"
+            },
+            "companies": {
+              "type": "array",
+              "example": "[37]",
+              "items": {
+                "$ref": ""
+              }
+            },
+            "facilities": {
+              "type": "array",
+              "example": "[37,56]",
+              "items": {
+                "$ref": ""
+              }
+            },
+            "units": {
+              "type": "array",
+              "example": "[3,6]",
+              "items": {
+                "$ref": ""
+              }
+            },
+            "status": {
+              "type": "number",
+              "example": "1"
+            },
+            "role": {
+              "type": "number",
+              "example": "1"
+            },
+            "permissions": {
+              "type": "object",
+              "example": ""
+            }
+          }
+        },
+        "getAllAdmins": {
+          "type": "object",
+          "properties": {
+            "filter": {
+              "type": "object",
+              "example": "{'userName':'','firstName':'','lastName':'','email':'','phone':''}"
+            },
+            "page": {
+              "type": "number",
+              "example": "1"
+            }
+          }
+        },
+        "caregiver": {
+          "type": "object",
+          "properties": {
+            "firstname": {
+              "type": "string",
+              "example": "Abhinav"
+            },
+            "middlename": {
+              "type": "string",
+              "example": ""
+            },
+            "lastname": {
+              "type": "string",
+              "example": "Kashyap"
+            },
+            "address": {
+              "type": "string",
+              "example": "186 , block A, sec-63 ,Noida"
+            },
+            "city": {
+              "type": "string",
+              "example": "Noida"
+            },
+            "county": {
+              "type": "string",
+              "example": ""
+            },
+            "state": {
+              "type": "string",
+              "example": "AL"
+            },
+            "zipcode": {
+              "type": "string",
+              "example": "20130"
+            },
+            "country": {
+              "type": "string",
+              "example": "land Islands"
+            },
+            "phone": {
+              "type": "number",
+              "example": "(111) 111-1111"
+            },
+            "email": {
+              "type": "string",
+              "example": "abhinavk5@chetu.com"
+            },
+            "password": {
+              "type": "string",
+              "example": ""
+            },
+            "heard_from": {
+              "type": "string",
+              "example": "Conference"
+            },
+            "recruiter": {
+              "type": "string",
+              "example": ""
+            },
+            "bio_upload_id": {
+              "type": "string",
+              "example": ""
+            },
+            "bio_upload_path": {
+              "type": "string",
+              "example": ""
+            },
+            "is_preferred_contact": {
+              "type": "string",
+              "example": "Phone"
+            },
+            "filelist": {
+              "type": "array",
+              "example": "[]",
+              "items": {
+                "$ref": ""
+              }
+            },
+            "selectedPositions": {
+              "type": "object",
+              "properties": {}
+            },
+            "recruiter_id": {
+              "type": "number",
+              "example": ""
+            }
+          },
+          "required": [
+            "firstname",
+            "lastname",
+            "address",
+            "city",
+            "state",
+            "zipcode",
+            "country",
+            "phone",
+            "email",
+            "is_preferred_contact"
+          ]
+        },
+        "push_notifications": {
+          "type": "object",
+          "properties": {
+            "req_type": {
+              "type": "string",
+              "example": "browser"
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "endpoint": {
+                  "type": "string",
+                  "example": "https://fcm.googleapis.com/fcm/send/fzfNsffjA5c:APA91bFEUHTi_hPVMQEd9jE54XwnQ-dHbjZreQP8w_VlmottsGGlx8eFq21WEVkS67JCZITr7Gb64kTSOg__oztVEdTRTQIc9QkNnOu7cewNavHp-_2KVRVF1q0eZmCLmWV7c2ZYlrVY"
+                },
+                "expirationTime": {
+                  "type": "string",
+                  "example": null
+                },
+                "keys": {
+                  "type": "object",
+                  "properties": {
+                    "p256dh": {
+                      "type": "string",
+                      "example": "BHzAS6ZI9feFdaSLKYATaUOXxmTcWl3gQtMpqEd6syMGidizKQB3qHoM-ku33YfRpL2N6DgIe3hd2NvFOdRlk2M"
+                    },
+                    "auth": {
+                      "type": "string",
+                      "example": "iuhXoz_bP61heNAaPc4hxg"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "req_type",
+            "params"
+          ]
+        },
+        "contract_invites": {
+          "type": "object",
+          "properties": {
+            "invite_id": {
+              "type": "number",
+              "example": "65"
+            },
+            "opening_id": {
+              "type": "number",
+              "example": "31"
+            },
+            "status": {
+              "type": "string",
+              "example": "APPLIED"
+            }
+          }
+        },
+        "clock_ins": {
+          "type": "object",
+          "properties": {
+            "job_type": {
+              "type": "string",
+              "example": "openings"
+            },
+            "job_id": {
+              "type": "number",
+              "example": "19"
+            },
+            "facility_id": {
+              "type": "number",
+              "example": "1"
+            },
+            "unit_id": {
+              "type": "number",
+              "example": "1"
+            },
+            "shift_type_id": {
+              "type": "number",
+              "example": "2"
+            },
+            "notes": {
+              "type": "string",
+              "example": ""
+            },
+            "clock_in_lat": {
+              "type": "string",
+              "example": "-122.084"
+            },
+            "clock_in_long": {
+              "type": "string",
+              "example": "37.421998333333335"
+            },
+            "timeZone": {
+              "type": "string",
+              "example": "Asia/Calcutta"
+            }
+          }
+        }
+      },
+      "requestBodies": {
+        "UserArray": {
+          "description": "List of user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "api_key": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header",
+          "description": "Example: Bearer write_token_after_login"
+        }
+      }
+    }
+  }
